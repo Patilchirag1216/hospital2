@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Hospital</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer"
+  />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    .glow:hover { box-shadow: 0 15px 50px rgba(0,0,0,.15), 0 0 0 1px rgba(255,255,255,.15) inset; }
+    .shine { background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+             background-size: 200% 100%; animation: shine 2.5s linear infinite; }
+    @keyframes shine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <nav class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="mt-4 mb-3 rounded-2xl bg-white/70 backdrop-blur-xl shadow-lg ring-1 ring-black/5">
+        <div class="flex items-center justify-between px-4 py-3">
+          <a href="#home" class="flex items-center gap-2">
+            <span class="text-2xl">🏥</span>
+            <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">
+              Health
+            </span>
+          </a>
+
+          <!-- Mobile burger -->
+          <button id="menuBtn"
+                  class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 transition"
+                  aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Desktop menu -->
+          <ul id="menu" class="hidden md:flex items-center gap-6 text-sm font-semibold">
+            <li><a class="hover:text-sky-600" href="#about">About</a></li>
+            <li><a class="hover:text-sky-600" href="#services">Services</a></li>
+            <li><a class="hover:text-sky-600" href="#departments">Departments</a></li>
+            <li><a class="hover:text-sky-600" href="#therapy">Therapy</a></li>
+            <li><a class="hover:text-sky-600" href="#doctors">Doctors</a></li>
+            <li><a class="hover:text-sky-600" href="#appointment">Appointment</a></li>
+            <li><a class="hover:text-sky-600" href="#contact">Contact</a></li>
+            <li>
+              <a href="#appointment"
+                 class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-600 to-indigo-600 text-white px-4 py-2 hover:opacity-90 transition">
+                <i class="fa-regular fa-calendar-check"></i> Book Now
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile" class="hidden md:hidden border-t border-slate-100 px-4 py-3">
+          <div class="grid grid-cols-2 gap-3 text-sm font-semibold">
+            <a class="hover:text-sky-600" href="#about">About</a>
+            <a class="hover:text-sky-600" href="#services">Services</a>
+            <a class="hover:text-sky-600" href="#departments">Departments</a>
+            <a class="hover:text-sky-600" href="#therapy">Therapy</a>
+            <a class="hover:text-sky-600" href="#doctors">Doctors</a>
+            <a class="hover:text-sky-600" href="#appointment">Appointment</a>
+            <a class="hover:text-sky-600" href="#contact">Contact</a>
+            <a class="col-span-2 text-center rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 text-white py-2"
+               href="#appointment">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="relative pt-36">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-sky-50 via-indigo-50 to-white"></div>
+    <div class="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-sky-300/30 blur-3xl"></div>
+    <div class="pointer-events-none absolute top-10 right-0 h-72 w-72 rounded-full bg-indigo-300/30 blur-3xl"></div>
+
+    <div class="mx-auto max-w-7xl px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right" class="text-center md:text-left">
+        <span class="inline-flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full bg-white/70 backdrop-blur shine">
+         </span>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+          Care thats <span class="bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">Reliability</span> and
+          <span class="bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent">Main-Thing</span>
+        </h1>
+        <p class="mt-4 text-slate-600 text-lg">World-class doctors, modern equipment, and a patient-first approach for you and your family.</p>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:justify-center md:justify-start">
+          <a href="#appointment"
+             class="rounded-full bg-gradient-to-r from-sky-600 to-indigo-600 text-white px-6 py-3 font-semibold hover:opacity-90 transition text-center">Make Appointment</a>
+          <a href="#services"
+             class="rounded-full px-6 py-3 font-semibold ring-1 ring-slate-300 hover:bg-white transition text-center">Explore Services</a>
+        </div>
+      </div>
+      <div class="relative" data-aos="fade-left">
+        <img loading="lazy"
+             src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop"
+             alt="Hospital building"
+             class="w-full rounded-3xl shadow-2xl ring-1 ring-black/5"/>
+        <div class="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur rounded-2xl p-4 shadow-xl ring-1 ring-black/5">
+          <p class="text-sm font-semibold"><i class="fa-solid fa-user-doctor text-sky-600"></i> 100+ Specialists</p>
+          <p class="text-xs text-slate-500">Cardiology • Neurology • Pediatrics • Ortho</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="scroll-mt-24 py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center">
+      <div class="order-2 md:order-1" data-aos="fade-right">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+          About <span class="bg-gradient-to-r from-sky-600 to-indigo-600 bg-clip-text text-transparent">Health</span>
+        </h2>
+        <p class="mt-4 text-slate-600 leading-relaxed">
+          We deliver multi-specialty care with international standards, advanced diagnostics, and
+          experienced clinicians. Our mission is to provide accessible, affordable, and compassionate healthcare.
+        </p>
+        <ul class="mt-6 grid grid-cols-2 gap-3 text-sm">
+          <li class="rounded-xl bg-white p-3 shadow glow"><i class="fa-solid fa-clock text-sky-600"></i> 24/7 Emergency</li>
+          <li class="rounded-xl bg-white p-3 shadow glow"><i class="fa-solid fa-vial text-indigo-600"></i> Advanced Labs</li>
+          <li class="rounded-xl bg-white p-3 shadow glow"><i class="fa-solid fa-heart-pulse text-rose-600"></i> Patient First</li>
+         </ul>
+      </div>
+      <div class="order-1 md:order-2" data-aos="fade-left">
+        <img loading="lazy"
+             src="https://images.unsplash.com/photo-1584983389354-4f66c4e1b77c?q=80&w=1200&auto=format&fit=crop"
+             class="w-full rounded-3xl shadow-2xl ring-1 ring-black/5" alt="Hospital interior"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="scroll-mt-24 py-20 bg-gradient-to-b from-indigo-50 via-sky-50 to-white">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-extrabold tracking-tight">Our Services</h2>
+        <p class="mt-2 text-slate-600">Comprehensive care across specialties with modern tech and a human touch.</p>
+      </div>
+
+      <div class="mt-8 flex gap-3 overflow-x-auto no-scrollbar justify-center md:justify-start" data-aos="fade-up" data-aos-delay="100">
+        <button class="px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-sky-600 to-indigo-600 text-white">All</button>
+        <button class="px-4 py-2 rounded-full text-sm font-semibold bg-white ring-1 ring-slate-200 hover:bg-slate-50">Cardiology</button>
+        <button class="px-4 py-2 rounded-full text-sm font-semibold bg-white ring-1 ring-slate-200 hover:bg-slate-50">Neurology</button>
+        <button class="px-4 py-2 rounded-full text-sm font-semibold bg-white ring-1 ring-slate-200 hover:bg-slate-50">Orthopedics</button>
+        <button class="px-4 py-2 rounded-full text-sm font-semibold bg-white ring-1 ring-slate-200 hover:bg-slate-50">Pediatrics</button>
+      </div>
+
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+         <article class="group relative rounded-3xl p-6 bg-gradient-to-br from-sky-100 to-sky-200 shadow hover:-translate-y-1 hover:shadow-2xl transition glow"
+                 data-aos="zoom-in">
+          <div class="flex items-center justify-between">
+            <div class="h-14 w-14 rounded-2xl bg-white/80 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
+              <i class="fa-solid fa-stethoscope text-sky-600 text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full bg-white/80 ring-1 ring-black/5">OPD</span>
+          </div>
+          <h3 class="mt-5 text-xl font-bold">General Checkup</h3>
+          <p class="mt-2 text-sm text-slate-600">Routine exams, vitals, preventive screening & personalized health plans.</p>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="text-sm font-semibold text-sky-700">From ₹499</span>
+            <a href="#appointment" class="text-sm font-semibold hover:underline">Book →</a>
+          </div>
+          <div class="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-white/60 blur-xl"></div>
+        </article>
+
+        <article class="group relative rounded-3xl p-6 bg-gradient-to-br from-rose-100 to-rose-200 shadow hover:-translate-y-1 hover:shadow-2xl transition glow"
+                 data-aos="zoom-in" data-aos-delay="100">
+          <div class="flex items-center justify-between">
+            <div class="h-14 w-14 rounded-2xl bg-white/80 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
+              <i class="fa-solid fa-heart-pulse text-rose-600 text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full bg-white/80 ring-1 ring-black/5">Cardio</span>
+          </div>
+          <h3 class="mt-5 text-xl font-bold">Cardiology</h3>
+          <p class="mt-2 text-sm text-slate-600">ECG, echo, TMT & interventional care with top cardiologists.</p>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="text-sm font-semibold text-rose-700">From ₹1499</span>
+            <a href="#appointment" class="text-sm font-semibold hover:underline">Book →</a>
+          </div>
+          <div class="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-white/60 blur-xl"></div>
+        </article>
+
+        <article class="group relative rounded-3xl p-6 bg-gradient-to-br from-violet-100 to-violet-200 shadow hover:-translate-y-1 hover:shadow-2xl transition glow"
+                 data-aos="zoom-in" data-aos-delay="200">
+          <div class="flex items-center justify-between">
+            <div class="h-14 w-14 rounded-2xl bg-white/80 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
+              <i class="fa-solid fa-brain text-violet-600 text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full bg-white/80 ring-1 ring-black/5">Neuro</span>
+          </div>
+          <h3 class="mt-5 text-xl font-bold">Neurology</h3>
+          <p class="mt-2 text-sm text-slate-600">Headache, stroke, epilepsy & nerve disorder management.</p>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="text-sm font-semibold text-violet-700">From ₹1299</span>
+            <a href="#appointment" class="text-sm font-semibold hover:underline">Book →</a>
+          </div>
+          <div class="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-white/60 blur-xl"></div>
+        </article>
+
+        <article class="group relative rounded-3xl p-6 bg-gradient-to-br from-amber-100 to-amber-200 shadow hover:-translate-y-1 hover:shadow-2xl transition glow"
+                 data-aos="zoom-in">
+          <div class="flex items-center justify-between">
+            <div class="h-14 w-14 rounded-2xl bg-white/80 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
+              <i class="fa-solid fa-x-ray text-amber-600 text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full bg-white/80 ring-1 ring-black/5">Imaging</span>
+          </div>
+          <h3 class="mt-5 text-xl font-bold">Radiology</h3>
+          <p class="mt-2 text-sm text-slate-600">Digital X-ray, CT, MRI & ultrasound with fast reporting.</p>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="text-sm font-semibold text-amber-700">From ₹799</span>
+            <a href="#appointment" class="text-sm font-semibold hover:underline">Book →</a>
+          </div>
+          <div class="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-white/60 blur-xl"></div>
+        </article>
+
+        <article class="group relative rounded-3xl p-6 bg-gradient-to-br from-emerald-100 to-emerald-200 shadow hover:-translate-y-1 hover:shadow-2xl transition glow"
+                 data-aos="zoom-in" data-aos-delay="100">
+          <div class="flex items-center justify-between">
+            <div class="h-14 w-14 rounded-2xl bg-white/80 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
+              <i class="fa-solid fa-truck-medical text-emerald-600 text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full bg-white/80 ring-1 ring-black/5">24/7</span>
+          </div>
+          <h3 class="mt-5 text-xl font-bold">Emergency Care</h3>
+          <p class="mt-2 text-sm text-slate-600">Ambulance, trauma response & critical care round-the-clock.</p>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="text-sm font-semibold text-emerald-700">On Call</span>
+            <a href="#contact" class="text-sm font-semibold hover:underline">Call Now →</a>
+          </div>
+          <div class="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-white/60 blur-xl"></div>
+        </article>
+
+        <article class="group relative rounded-3xl p-6 bg-gradient-to-br from-pink-100 to-pink-200 shadow hover:-translate-y-1 hover:shadow-2xl transition glow"
+                 data-aos="zoom-in" data-aos-delay="200">
+          <div class="flex items-center justify-between">
+            <div class="h-14 w-14 rounded-2xl bg-white/80 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
+              <i class="fa-solid fa-hands-holding-child text-pink-600 text-2xl"></i>
+            </div>
+            <span class="text-xs font-bold px-2 py-1 rounded-full bg-white/80 ring-1 ring-black/5">Rehab</span>
+          </div>
+          <h3 class="mt-5 text-xl font-bold">Therapy & Rehab</h3>
+          <p class="mt-2 text-sm text-slate-600">Physiotherapy, occupational therapy & guided recovery plans.</p>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="text-sm font-semibold text-pink-700">Custom Plans</span>
+            <a href="#therapy" class="text-sm font-semibold hover:underline">See More →</a>
+          </div>
+          <div class="absolute -bottom-5 -right-5 h-24 w-24 rounded-full bg-white/60 blur-xl"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTS  -->
+  <section id="departments" class="scroll-mt-24 py-16">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center" data-aos="fade-up">Departments</h2>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="rounded-2xl bg-white p-5 shadow hover:shadow-xl transition glow text-center">🫀 Cardiology</div>
+        <div class="rounded-2xl bg-white p-5 shadow hover:shadow-xl transition glow text-center">🧠 Neurology</div>
+        <div class="rounded-2xl bg-white p-5 shadow hover:shadow-xl transition glow text-center">🦴 Orthopedics</div>
+        <div class="rounded-2xl bg-white p-5 shadow hover:shadow-xl transition glow text-center">👶 Pediatrics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THERAPY -->
+  <section id="therapy" class="scroll-mt-24 py-20 bg-gradient-to-b from-white to-sky-50">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-extrabold tracking-tight">Therapy & Rehabilitation</h2>
+        <p class="mt-2 text-slate-600">Holistic recovery with personalized plans.</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-3xl p-6 bg-gradient-to-br from-sky-100 to-indigo-100 shadow glow hover:-translate-y-1 transition"
+             data-aos="zoom-in">
+          <div class="h-12 w-12 rounded-2xl bg-white/80 flex items-center justify-center ring-1 ring-black/5">
+            <i class="fa-solid fa-dumbbell text-sky-700"></i>
+          </div>
+          <h3 class="mt-4 text-xl font-bold">Physiotherapy</h3>
+          <p class="mt-1 text-sm text-slate-600">Mobility restoration, pain relief, sports injury recovery.</p>
+        </div>
+
+        <div class="rounded-3xl p-6 bg-gradient-to-br from-rose-100 to-pink-100 shadow glow hover:-translate-y-1 transition"
+             data-aos="zoom-in" data-aos-delay="100">
+          <div class="h-12 w-12 rounded-2xl bg-white/80 flex items-center justify-center ring-1 ring-black/5">
+            <i class="fa-solid fa-face-smile-beam text-pink-700"></i>
+          </div>
+          <h3 class="mt-4 text-xl font-bold">Mental Wellness</h3>
+          <p class="mt-1 text-sm text-slate-600">Counseling, stress management, mindfulness sessions.</p>
+        </div>
+
+        <div class="rounded-3xl p-6 bg-gradient-to-br from-emerald-100 to-teal-100 shadow glow hover:-translate-y-1 transition"
+             data-aos="zoom-in" data-aos-delay="200">
+          <div class="h-12 w-12 rounded-2xl bg-white/80 flex items-center justify-center ring-1 ring-black/5">
+            <i class="fa-solid fa-person-walking-with-cane text-emerald-700"></i>
+          </div>
+          <h3 class="mt-4 text-xl font-bold">Rehabilitation</h3>
+          <p class="mt-1 text-sm text-slate-600">Post-surgery rehab, gait training, assistive devices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTORS -->
+  <section id="doctors" class="scroll-mt-24 py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="text-center" data-aos="fade-up">
+        <h2 class="text-4xl font-extrabold tracking-tight">Our Expert Doctors</h2>
+        <p class="mt-2 text-slate-600">Meet the specialists behind our care.</p>
+      </div>
+      <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-3xl bg-white p-6 shadow hover:shadow-2xl transition glow" data-aos="fade-up">
+          <img class="w-28 h-28 rounded-full ring-4 ring-sky-200 mx-auto"
+               src="https://randomuser.me/api/portraits/men/32.jpg" alt="Doctor"/>
+          <div class="text-center mt-4">
+            <h3 class="font-bold">Dr. John Smith</h3>
+            <p class="text-sm text-slate-600">Cardiologist</p>
+            <div class="mt-3 flex justify-center gap-3 text-slate-500">
+              <i class="fa-brands fa-linkedin hover:text-sky-600 cursor-pointer"></i>
+              <i class="fa-brands fa-x-twitter hover:text-slate-900 cursor-pointer"></i>
+              <i class="fa-brands fa-facebook hover:text-sky-700 cursor-pointer"></i>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-white p-6 shadow hover:shadow-2xl transition glow" data-aos="fade-up" data-aos-delay="100">
+          <img class="w-28 h-28 rounded-full ring-4 ring-violet-200 mx-auto"
+               src="https://randomuser.me/api/portraits/women/44.jpg" alt="Doctor"/>
+          <div class="text-center mt-4">
+            <h3 class="font-bold">Dr. Emily Brown</h3>
+            <p class="text-sm text-slate-600">Neurologist</p>
+            <div class="mt-3 flex justify-center gap-3 text-slate-500">
+              <i class="fa-brands fa-linkedin hover:text-sky-600 cursor-pointer"></i>
+              <i class="fa-brands fa-x-twitter hover:text-slate-900 cursor-pointer"></i>
+              <i class="fa-brands fa-facebook hover:text-sky-700 cursor-pointer"></i>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-white p-6 shadow hover:shadow-2xl transition glow" data-aos="fade-up" data-aos-delay="200">
+          <img class="w-28 h-28 rounded-full ring-4 ring-pink-200 mx-auto"
+               src="https://randomuser.me/api/portraits/women/68.jpg" alt="Doctor"/>
+          <div class="text-center mt-4">
+            <h3 class="font-bold">Dr. Sarah Lee</h3>
+            <p class="text-sm text-slate-600">Pediatrician</p>
+            <div class="mt-3 flex justify-center gap-3 text-slate-500">
+              <i class="fa-brands fa-linkedin hover:text-sky-600 cursor-pointer"></i>
+              <i class="fa-brands fa-x-twitter hover:text-slate-900 cursor-pointer"></i>
+              <i class="fa-brands fa-facebook hover:text-sky-700 cursor-pointer"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT PATIENTS SAY  -->
+  <section class="py-16 bg-gradient-to-b from-sky-50 to-white">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center" data-aos="fade-up">What Patients Say</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <blockquote class="rounded-3xl bg-white p-6 shadow glow" data-aos="fade-up">
+          “Excellent care, friendly staff. Highly recommend!” — <span class="font-semibold">Rahul</span>
+        </blockquote>
+        <blockquote class="rounded-3xl bg-white p-6 shadow glow" data-aos="fade-up" data-aos-delay="100">
+          “Doctors are very experienced and supportive.” — <span class="font-semibold">Aisha</span>
+        </blockquote>
+        <blockquote class="rounded-3xl bg-white p-6 shadow glow" data-aos="fade-up" data-aos-delay="200">
+          “Clean & modern facilities, great service.” — <span class="font-semibold">Priya</span>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPOINTMENT  -->
+  <section id="appointment" class="scroll-mt-24 py-20 bg-gradient-to-r from-sky-600 to-indigo-600 text-white">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 grid lg:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right" class="text-center lg:text-left">
+        <h2 class="text-4xl font-extrabold">Book an Appointment</h2>
+        <p class="mt-2 text-sky-100">Pick a department, choose a time, and our team will confirm your visit.</p>
+        <ul class="mt-6 space-y-2 text-sky-100/90 text-sm">
+          <li><i class="fa-regular fa-circle-check"></i> Instant confirmation SMS/E-mail</li>
+          <li><i class="fa-regular fa-circle-check"></i> No long queues</li>
+          <li><i class="fa-regular fa-circle-check"></i> Reschedule anytime</li>
+        </ul>
+      </div>
+
+      <form class="bg-white text-slate-800 rounded-3xl p-6 shadow-xl ring-1 ring-black/5"
+            data-aos="fade-left">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <input class="rounded-xl border-slate-200 focus:ring-2 focus:ring-sky-500 px-4 py-3" placeholder="Full Name" required aria-label="Full Name"/>
+          <input class="rounded-xl border-slate-200 focus:ring-2 focus:ring-sky-500 px-4 py-3" type="email" placeholder="Email" required aria-label="Email"/>
+          <input class="rounded-xl border-slate-200 focus:ring-2 focus:ring-sky-500 px-4 py-3" type="tel" placeholder="Phone" required aria-label="Phone"/>
+          <select class="rounded-xl border-slate-200 focus:ring-2 focus:ring-sky-500 px-4 py-3" aria-label="Department">
+            <option>Department</option>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+            <option>Orthopedics</option>
+            <option>Pediatrics</option>
+          </select>
+          <input class="rounded-xl border-slate-200 focus:ring-2 focus:ring-sky-500 px-4 py-3" type="date" required aria-label="Date"/>
+          <input class="rounded-xl border-slate-200 focus:ring-2 focus:ring-sky-500 px-4 py-3" type="time" required aria-label="Time"/>
+        </div>
+        <textarea class="mt-4 w-full rounded-xl border-slate-200 focus:ring-2 focus:ring-sky-500 px-4 py-3" rows="3" placeholder="Any notes…" aria-label="Notes"></textarea>
+        <button type="submit"
+                class="mt-4 w-full rounded-2xl bg-gradient-to-r from-sky-600 to-indigo-600 py-3 font-semibold text-white hover:opacity-90 transition">
+          Confirm Appointment
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="scroll-mt-24 py-16">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 grid md:grid-cols-2 gap-10">
+      <div data-aos="fade-right">
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">Contact Us</h2>
+        <p class="mt-2 text-slate-600">📍 123 Health Street, City, India</p>
+        <p class="text-slate-600">📞 +91 98765 43210 • ✉️ support@healthcare.com</p>
+        <div class="mt-4 flex gap-3 text-slate-500">
+          <i class="fa-brands fa-facebook hover:text-sky-600 cursor-pointer"></i>
+          <i class="fa-brands fa-instagram hover:text-pink-600 cursor-pointer"></i>
+          <i class="fa-brands fa-x-twitter hover:text-slate-900 cursor-pointer"></i>
+        </div>
+      </div>
+      <div data-aos="fade-left">
+        <iframe loading="lazy" class="w-full h-64 rounded-3xl shadow ring-1 ring-black/5"
+                src="https://maps.google.com/maps?q=india&t=&z=5&ie=UTF8&iwloc=&output=embed" title="Map"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-300">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 py-10 grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="text-lg font-extrabold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">Health</div>
+        <p class="mt-2 text-sm text-slate-400">World-class healthcare with compassion. © 2025.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Quick Links</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a class="hover:text-white" href="#services">Services</a></li>
+          <li><a class="hover:text-white" href="#doctors">Doctors</a></li>
+          <li><a class="hover:text-white" href="#appointment">Appointment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-2">Newsletter</h4>
+        <div class="flex gap-2">
+          <input class="flex-1 rounded-xl px-3 py-2 text-slate-900" placeholder="Email address"/>
+          <button class="rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 px-4 py-2 text-white">Join</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+ 
+
+  <!-- SCRIPTS -->
+  <script>
+    // AOS init after script loads
+   window.addEventListener('load', () => {
+     if (window.AOS) AOS.init({ duration: 1000, once: true });
+   });
+
+    // Mobile menu toggle + close on link tap
+    const menuBtn = document.getElementById('menuBtn');
+    const mobile = document.getElementById('mobile');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        const hidden = mobile.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', (!hidden).toString());
+      });
+      mobile.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          mobile.classList.add('hidden');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+   
+    
+  </script>
+</body>
+</html>
